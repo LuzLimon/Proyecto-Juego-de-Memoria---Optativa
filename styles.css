@@ -1,0 +1,71 @@
+body{
+    font-family: 'Roboto', sans-serif;
+    background-color: rgb(255, 115, 0);
+  }
+  main{
+    margin: 10px auto;
+    width: 700px;
+    align-items: center;
+  }
+
+  .section1{
+    margin-top: 0px;
+    align-items: center;
+    justify-content: center;
+    margin-left: 150px;
+  }
+
+  .section2 {
+    margin-top: 10px;
+  }
+
+  h1 {
+    margin-right: 140px;
+    text-align: center;
+  }
+
+  button{
+    height: 100px;
+    width: 100px;
+    font-size: 40px;
+    font-weight: bold;
+  }
+
+  button:hover{
+    cursor: pointer;
+  }
+
+  .stadistics{
+    border: 1px solid white;
+    height: 50px;
+    border-radius: 8px;
+    padding: 8px 20px;
+    box-sizing: border-box;
+  }
+  footer{
+    text-align: center;
+  }
+  a{
+    text-decoration: none;
+  }
+  img{
+    width: 80%;
+  }
+ /* DISEÑO REPONSIVO */
+  @media (max-width: 750px){
+    main{
+      display: flex;
+      flex-direction: column;
+      width: 350px;
+      margin-right: 600px;
+    }
+    .section2{
+      width: 70%;
+      border-radius: 8px;
+      align-items: center;
+      margin-left: 150px;
+    }
+    h1 {
+      margin-left: 130px;
+    }
+  }
