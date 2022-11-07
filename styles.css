@@ -4,29 +4,48 @@ body{
   }
   main{
     margin: 10px auto;
-    width: 700px;
+    width: 800px;
+    display: flex;
     align-items: center;
   }
 
-  .section1{
+  /* .section1{
     margin-top: 0px;
     align-items: center;
     justify-content: center;
-    margin-left: 150px;
+    margin-left: 70px;
+    width: 50%;
+    height: 50%;
+    float: left;
+  } */
+  
+  .section1 {
+    padding: 0 10px 10px 10px;
+    border-radius: 8px;
   }
 
+  /* .section2 {
+    margin-left: 900px;
+    margin-top: 0px;
+    width: 50%;
+    height: 50%;   
+  } */
+
   .section2 {
-    margin-top: 10px;
+    width: auto;
+    height: 480px;
+    padding: 0 20px 0;
+    display: flex;
+
   }
 
   h1 {
-    margin-right: 140px;
     text-align: center;
   }
 
   button{
-    height: 100px;
-    width: 100px;
+    height: 130px;
+    width: 130px;
     font-size: 40px;
     font-weight: bold;
   }

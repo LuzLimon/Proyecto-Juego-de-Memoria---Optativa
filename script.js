@@ -10,13 +10,12 @@ let showMovements2 = 0;
 let cardsAleatoria = [];
 let cardsContainer = [];
 let cardsRandom = [];
+let card1 = [];
+let card2 = [];
 //CONSTANTE PARA DECLARAR LAS IMAGENES POR MEDIO DEL NUEMRO DE IDENTIFICACIÓN.
 let cards = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32];
 
 // let cards = [1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 10, 11, 11, 12, 12, 13, 13, 14, 14, 15, 15, 16, 16, 17, 17, 18, 18, 19, 19, 20, 20, 21, 21, 22, 22, 23, 23, 24, 24, 25, 25, 26, 26, 27, 27, 28, 28, 29, 29, 30, 30, 31, 31, 32, 32];
-
-
-
 
 //FUNCION PARA OBTENER UNA LISTA DE IMAGENES RANDOM Y LISTA DE IMAGENES RANDOM POR JUEGO
 cards.sort(function(){
@@ -34,10 +33,6 @@ console.log('aleatoria3', cardsRandom)
 cardsRandom.sort(function(){
   return Math.random() - 0.3;
 });
-
-
-
-
 
 // function cardsAleatoria() {
 //   orderCardsRound = cards.concat(this.cards);
@@ -85,7 +80,7 @@ function turn(id) {
   }
 //CONDICIONALES PARA VOLTEAR LAS IMAGENES UNA POR UNA Y DESHABILITAR CUANDO ESTEN BOCA ARRIBA
   if (cardsDiscover == 0) {
-    let card1 = document.getElementById(id);
+    card1 = document.getElementById(id);
     firstSelecction = cardsRandom[id];
     console.log('IMAGEN 1:', firstSelecction);
     card1.innerHTML = `<img src="/images/${firstSelecction}.jpg" alt="">`;
@@ -94,7 +89,7 @@ function turn(id) {
     firstId = id;
 
   } else if (cardsDiscover == 1) {
-    let card2 = document.getElementById(id);
+    card2 = document.getElementById(id);
     secondSelecction = cardsRandom[id];
     console.log('IMAGEN 2', secondSelecction);
     card2.innerHTML = `<img class="card2" src="/images/${secondSelecction}.jpg" alt="">`;
@@ -105,25 +100,38 @@ function turn(id) {
 
 //CONDICION PARA VERIFICAR SI LAS IMAGENES SON LAS MISMAS O NO Y REGRESAR A SU ESTADO NORMAL
     if (firstSelecction == secondSelecction) {
-      console.log(firstSelecction)
+      card1.classList.remove("btn", "btn-danger", "btn-md");
+      card2.classList.remove("btn", "btn-danger", "btn-md");
+      card1.classList.remove("btn", "btn-outline-warning", "btn-md");
+      card2.classList.remove("btn", "btn-outline-warning", "btn-md");
+      card1.classList.add("btn", "btn-success", "btn-md");
+      card2.classList.add("btn", "btn-success", "btn-md");
+      console.log(card1, "Soy verde");
       cardsDiscover = 0;
       pairs++;
     } else {
-      // card2.innerHTML = `<img class="card2" src="/images/${secondSelecction}.jpg" alt="">` + `<style>
-      // img {
-      //   border: red 5px double;
-      //   width: 80%; 
-      // }
-      // </style>`; 
+      card1.classList.remove("btn", "btn-success", "btn-md");
+      card2.classList.remove("btn", "btn-success", "btn-md");
+      card1.classList.remove("btn", "btn-outline-warning", "btn-md");
+      card2.classList.remove("btn", "btn-outline-warning", "btn-md");
+      card1.classList.add("btn", "btn-danger", "btn-md");
+      card2.classList.add("btn", "btn-danger", "btn-md");
+      console.log(card1, "Soy rojo")
+      
       setTimeout(() => {
-        card1 = document.getElementById(firstId);
-        card2 = document.getElementById(secondId);
+      card1 = document.getElementById(firstId);
+      card2 = document.getElementById(secondId);
+      
         card1.innerHTML = " ";
         card2.innerHTML = " ";
         card1.disabled = false;
         card2.disabled = false;
         cardsDiscover = 0;
-      }, 1500);
+        card1.classList.remove("btn", "btn-danger", "btn-md");
+        card2.classList.remove("btn", "btn-danger", "btn-md");
+        card1.classList.add("btn", "btn-outline-warning", "btn-md");
+        card2.classList.add("btn", "btn-outline-warning", "btn-md");
+      }, 1000);
     }
   }
 //CONDICION PARA FINALIZAR EL JUEGO
